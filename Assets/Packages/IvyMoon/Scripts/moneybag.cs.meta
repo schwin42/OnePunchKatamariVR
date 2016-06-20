@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 23b734090b788aa469efd8802b0e6933
+timeCreated: 1455854749
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Player: {instanceID: 0}
+  - pickupSound: {fileID: 8300000, guid: 8215c9f864bbcb746a095c7c9729323d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

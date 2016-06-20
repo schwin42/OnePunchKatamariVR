@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 8f764909059a8f94999bcc1df05c03f5
+timeCreated: 1455854770
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - onHitSound: {fileID: 8300000, guid: 10a5fb125f43c7d48a4a9f7cc002e518, type: 3}
+  - hitFX: {instanceID: 0}
+  - deathFX: {instanceID: 0}
+  - destroyParts: {instanceID: 0}
+  - spawnPickup: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

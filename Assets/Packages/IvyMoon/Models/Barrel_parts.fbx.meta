@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 9abab28549c5d1541874fe9f3f21900c
+timeCreated: 1450052127
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: barrel_Debris1
+    100002: barrel_Debris10
+    100004: barrel_Debris11
+    100006: barrel_Debris12
+    100008: barrel_Debris2
+    100010: barrel_Debris3
+    100012: barrel_Debris4
+    100014: barrel_Debris5
+    100016: barrel_Debris6
+    100018: barrel_Debris7
+    100020: barrel_Debris8
+    100022: barrel_Debris9
+    100024: barrel_Debris_Hoop18
+    100026: barrel_Debris_Hoop19
+    100028: barrel_Debris_Hoop20
+    100030: barrel_Debris_Hoop21
+    100032: barrel_Debris_Hoop22
+    100034: barrel_Debris_Hoop23
+    100036: barrel_Debris_Lid2
+    100038: barrel_Debris_Lid3
+    100040: //RootNode
+    400000: barrel_Debris1
+    400002: barrel_Debris10
+    400004: barrel_Debris11
+    400006: barrel_Debris12
+    400008: barrel_Debris2
+    400010: barrel_Debris3
+    400012: barrel_Debris4
+    400014: barrel_Debris5
+    400016: barrel_Debris6
+    400018: barrel_Debris7
+    400020: barrel_Debris8
+    400022: barrel_Debris9
+    400024: barrel_Debris_Hoop18
+    400026: barrel_Debris_Hoop19
+    400028: barrel_Debris_Hoop20
+    400030: barrel_Debris_Hoop21
+    400032: barrel_Debris_Hoop22
+    400034: barrel_Debris_Hoop23
+    400036: barrel_Debris_Lid2
+    400038: barrel_Debris_Lid3
+    400040: //RootNode
+    2300000: barrel_Debris1
+    2300002: barrel_Debris10
+    2300004: barrel_Debris11
+    2300006: barrel_Debris12
+    2300008: barrel_Debris2
+    2300010: barrel_Debris3
+    2300012: barrel_Debris4
+    2300014: barrel_Debris5
+    2300016: barrel_Debris6
+    2300018: barrel_Debris7
+    2300020: barrel_Debris8
+    2300022: barrel_Debris9
+    2300024: barrel_Debris_Hoop18
+    2300026: barrel_Debris_Hoop19
+    2300028: barrel_Debris_Hoop20
+    2300030: barrel_Debris_Hoop21
+    2300032: barrel_Debris_Hoop22
+    2300034: barrel_Debris_Hoop23
+    2300036: barrel_Debris_Lid2
+    2300038: barrel_Debris_Lid3
+    3300000: barrel_Debris1
+    3300002: barrel_Debris10
+    3300004: barrel_Debris11
+    3300006: barrel_Debris12
+    3300008: barrel_Debris2
+    3300010: barrel_Debris3
+    3300012: barrel_Debris4
+    3300014: barrel_Debris5
+    3300016: barrel_Debris6
+    3300018: barrel_Debris7
+    3300020: barrel_Debris8
+    3300022: barrel_Debris9
+    3300024: barrel_Debris_Hoop18
+    3300026: barrel_Debris_Hoop19
+    3300028: barrel_Debris_Hoop20
+    3300030: barrel_Debris_Hoop21
+    3300032: barrel_Debris_Hoop22
+    3300034: barrel_Debris_Hoop23
+    3300036: barrel_Debris_Lid2
+    3300038: barrel_Debris_Lid3
+    4300000: barrel_Debris1
+    4300002: barrel_Debris2
+    4300004: barrel_Debris3
+    4300006: barrel_Debris5
+    4300008: barrel_Debris6
+    4300010: barrel_Debris7
+    4300012: barrel_Debris8
+    4300014: barrel_Debris11
+    4300016: barrel_Debris_Lid3
+    4300018: barrel_Debris_Hoop21
+    4300020: barrel_Debris_Hoop22
+    4300022: barrel_Debris_Hoop23
+    4300024: barrel_Debris9
+    4300026: barrel_Debris10
+    4300028: barrel_Debris_Lid2
+    4300030: barrel_Debris12
+    4300032: barrel_Debris_Hoop19
+    4300034: barrel_Debris_Hoop20
+    4300036: barrel_Debris4
+    4300038: barrel_Debris_Hoop18
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
