@@ -21,6 +21,7 @@ public class Propel : MonoBehaviour
 	Rigidbody target = null;
 	RaycastHit currentHit;
 	Vector3 targetStartPosition;
+	Vector3 grabbedEdgeToOrigin;
 
 	//Inspector
 	public Rigidbody attachPoint;
@@ -92,6 +93,7 @@ public class Propel : MonoBehaviour
 			case Mode.Yanking:
 				lerpProgress += Time.deltaTime;
 				target.MovePosition(Vector3.Lerp(targetStartPosition, attachPoint.position, lerpProgress / LERP_DURATION));
+				//target.MovePosition(Vector3.Lerp(targetStartPosition, attachPoint.position + grabbedEdgeToOrigin, lerpProgress / LERP_DURATION)); // Attempted to implement grab object by edge; seems closer than naive approach
 				if (lerpProgress >= LERP_DURATION)
 				{ //Magic number of seconds that yank lasts
 					CompleteYank();
@@ -118,10 +120,11 @@ public class Propel : MonoBehaviour
 		target = currentHit.rigidbody;
 		if (target == null) return;
 
-		//Begin lerp of target to position in front of character 
+		//Begin lerp of target to endpoint
 		lerpProgress = 0;
 		currentMode = Mode.Yanking;
 		targetStartPosition = target.position;
+		grabbedEdgeToOrigin = target.position - currentHit.point;
 
 	}
 
