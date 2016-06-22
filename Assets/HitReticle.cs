@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using System.Collections.Generic;
 
 public class HitReticle : MonoBehaviour
 {
 
-	const float RETICLE_SCALE = 0.1F;
+	const float RETICLE_SCALE = 0.2F;
 
 	public GameObject reticlePrefab;
 	SteamVR_TrackedObject trackedObject;
@@ -49,15 +50,20 @@ public class HitReticle : MonoBehaviour
 
 		Ray ray = new Ray(transform.position, transform.forward);
 		RaycastHit[] hits = Physics.RaycastAll(ray, 100000);
-		hits.OrderBy(h => h.distance);
+		List<RaycastHit> orderedHits = hits.OrderBy(h => h.distance).ToList();
 		bool currentHitAssigned = false;
-		print(hits.Length + "hits");
-		foreach (RaycastHit hit in hits)
+		string s = "";
+		foreach (RaycastHit hit in orderedHits)
+		{
+			s += "Hit - dist, name " + hit.distance + ", " + hit.collider.gameObject.name + " - ";
+		}
+		print(s);
+		for(int i = 0; i < orderedHits.Count; i++)
 		{
 			bool ignoreHit = false;
 			foreach(Transform tr in propel.attachPoint.transform)
 			{
-				if (tr.gameObject == hit.collider.gameObject)
+				if (tr.gameObject == orderedHits[i].collider.gameObject)
 				{
 					ignoreHit = true;
 					break;
@@ -67,7 +73,7 @@ public class HitReticle : MonoBehaviour
 			if (ignoreHit) continue;
 
 			//Draw destination indicator
-			currentHit = hit;
+			currentHit = orderedHits[i];
 			runtimeReticle.SetActive(true);
 			runtimeReticle.transform.position = currentHit.Value.point;
 			currentHitAssigned = true;
