@@ -92,8 +92,8 @@ public class Propel : MonoBehaviour
 				break;
 			case Mode.Yanking:
 				lerpProgress += Time.deltaTime;
-				target.MovePosition(Vector3.Lerp(targetStartPosition, attachPoint.position, lerpProgress / LERP_DURATION));
-				//target.MovePosition(Vector3.Lerp(targetStartPosition, attachPoint.position + grabbedEdgeToOrigin, lerpProgress / LERP_DURATION)); // Attempted to implement grab object by edge; seems closer than naive approach
+				//target.MovePosition(Vector3.Lerp(targetStartPosition, attachPoint.position, lerpProgress / LERP_DURATION));
+				target.MovePosition(Vector3.Lerp(targetStartPosition, attachPoint.position + grabbedEdgeToOrigin, lerpProgress / LERP_DURATION)); // Attempted to implement grab object by edge; seems closer than naive approach
 				if (lerpProgress >= LERP_DURATION)
 				{ //Magic number of seconds that yank lasts
 					CompleteYank();
@@ -132,11 +132,13 @@ public class Propel : MonoBehaviour
 	{
 		currentMode = Mode.Holding;
 		target.isKinematic = true;
+		target.transform.SetParent(attachPoint.transform);
 	}
 
 	private void Throw()
 	{
 		currentMode = Mode.Ready;
+		target.transform.SetParent(null);
 		target.isKinematic = false;
 		target.AddForce(transform.forward * ACCELERATION_MAGNITUDE, ForceMode.Acceleration);
 		target = null;

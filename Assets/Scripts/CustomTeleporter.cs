@@ -37,19 +37,19 @@ public class CustomTeleporter : MonoBehaviour
 	void Update()
 	{
 		SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObject.index);
-		if(device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
+		if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
 		//if(device.GetTouch(SteamVR_Controller.ButtonMask.Axis0))
 		{
 			print("touchpad received");
 
 			//Display destination indicator + line 
-			
+
 			//Draw line
 			var t = reference;
 			if (t == null)
 				return;
 			float refY = t.position.y;
-			
+
 			Ray ray = new Ray(transform.position, transform.forward);
 			RaycastHit hit;
 			if (Physics.Raycast(ray, out hit, 100000))
@@ -57,7 +57,7 @@ public class CustomTeleporter : MonoBehaviour
 				//Draw line
 				lineRenderer.enabled = true;
 				lineRenderer.SetPositions(new Vector3[] { ray.origin, hit.point });
-				
+
 			}
 			else
 			{
@@ -68,11 +68,14 @@ public class CustomTeleporter : MonoBehaviour
 		if (device.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
 		{
 			//Teleport
-			transform.root.position = hitReticle.currentHit.point;
+			if (hitReticle.currentHit.HasValue)
+			{
+				transform.root.position = hitReticle.currentHit.Value.point;
+			}
 
 			DisableTeleportUi();
 		}
-		
+
 	}
 	private void DisableTeleportUi()
 	{

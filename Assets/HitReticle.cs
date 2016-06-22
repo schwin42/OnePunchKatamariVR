@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
-public class HitReticle : MonoBehaviour {
+public class HitReticle : MonoBehaviour
+{
 
 	const float RETICLE_SCALE = 0.1F;
 
@@ -16,7 +18,9 @@ public class HitReticle : MonoBehaviour {
 		}
 	}
 	GameObject runtimeReticle;
-	public RaycastHit currentHit;
+	public RaycastHit? currentHit;
+
+	Propel propel;
 
 	void Awake()
 	{
@@ -24,31 +28,55 @@ public class HitReticle : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start()
+	{
 		runtimeReticle = Instantiate<GameObject>(reticlePrefab);
 		runtimeReticle.gameObject.transform.localScale = new Vector3(RETICLE_SCALE, RETICLE_SCALE, RETICLE_SCALE);
+
+		propel = GetComponent<Propel>();
 	}
 
 	void FixedUpdate()
 	{
 		SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObject.index);
-			//Display destination indicator + line 
+		//Display destination indicator + line 
 
-			//Draw line
-			var t = reference;
-			if (t == null)
-				return;
-			float refY = t.position.y;
+		//Draw line
+		var t = reference;
+		if (t == null)
+			return;
+		float refY = t.position.y;
 
-			Ray ray = new Ray(transform.position, transform.forward);
-			if (Physics.Raycast(ray, out currentHit, 100000))
+		Ray ray = new Ray(transform.position, transform.forward);
+		RaycastHit[] hits = Physics.RaycastAll(ray, 100000);
+		hits.OrderBy(h => h.distance);
+		bool currentHitAssigned = false;
+		print(hits.Length + "hits");
+		foreach (RaycastHit hit in hits)
+		{
+			bool ignoreHit = false;
+			foreach(Transform tr in propel.attachPoint.transform)
 			{
-				//Draw destination indicator
-				runtimeReticle.transform.position = currentHit.point;
+				if (tr.gameObject == hit.collider.gameObject)
+				{
+					ignoreHit = true;
+					break;
+				}
+
 			}
-			else
-			{
-				//DisableTeleportUi();
-			}
+			if (ignoreHit) continue;
+
+			//Draw destination indicator
+			currentHit = hit;
+			runtimeReticle.SetActive(true);
+			runtimeReticle.transform.position = currentHit.Value.point;
+			currentHitAssigned = true;
+			break;
+		}
+		if (!currentHitAssigned)
+		{
+			runtimeReticle.SetActive(false);
+			currentHit = null;
+		}
 	}
 }
