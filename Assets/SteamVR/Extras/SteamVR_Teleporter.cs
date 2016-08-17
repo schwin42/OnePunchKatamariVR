@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
+using UnityEngine;
 using System.Collections;
 
 public class SteamVR_Teleporter : MonoBehaviour
@@ -22,8 +23,6 @@ public class SteamVR_Teleporter : MonoBehaviour
 		}
 	}
 
-    LineRenderer lineRenderer;
-
 	void Start ()
     {
 		var trackedController = GetComponent<SteamVR_TrackedController>();
@@ -41,27 +40,7 @@ public class SteamVR_Teleporter : MonoBehaviour
 			if (t != null)
 	            t.position = new Vector3(t.position.x, Terrain.activeTerrain.SampleHeight(t.position), t.position.z);
         }
-
-        lineRenderer = GetComponent<LineRenderer>();
 	}
-
-    void Update()
-    {
-        //Draw line
-        var t = reference;
-        if (t == null)
-            return;
-        float refY = t.position.y;
-        Plane plane = new Plane(Vector3.up, -refY);
-        Ray ray = new Ray(this.transform.position, transform.forward);
-        float dist = 0;
-        bool hasGroundTarget = plane.Raycast(ray, out dist);
-        if (hasGroundTarget)
-        {
-            lineRenderer.SetPositions(new Vector3[] { ray.origin, ray.origin + ray.direction });
-        }
-        
-    }
 	
     void DoClick(object sender, ClickedEventArgs e)
     {
