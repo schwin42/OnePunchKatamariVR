@@ -6,6 +6,7 @@ public class CustomTeleporter : MonoBehaviour
 
 	SteamVR_TrackedObject trackedObject;
 
+	public Transform headTransform;
 
 	LineRenderer lineRenderer;
 	HitReticle hitReticle;
@@ -67,10 +68,18 @@ public class CustomTeleporter : MonoBehaviour
 
 		if (device.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
 		{
+			print ("registered press up");
 			//Teleport
-			if (hitReticle.currentHit.HasValue)
-			{
-				transform.root.position = hitReticle.currentHit.Value.point;
+			if (hitReticle.currentHit.HasValue) {
+				print ("hit value: " + hitReticle.currentHit.HasValue);
+				Vector3 rawTargetPosition = hitReticle.currentHit.Value.point + (transform.root.position - headTransform.position);
+				Vector3 finalTargetPosition = new Vector3 (rawTargetPosition.x, transform.root.position.y, rawTargetPosition.z);
+				print ("teleporting from, to: " + transform.root.position + ", " + finalTargetPosition);
+				transform.root.position = finalTargetPosition;
+
+//				transform.root.position = hitReticle.currentHit.Value.point;
+			} else {
+				print ("missing value");
 			}
 
 			DisableTeleportUi();

@@ -57,7 +57,6 @@ public class HitReticle : MonoBehaviour
 		{
 			s += "Hit - dist, name " + hit.distance + ", " + hit.collider.gameObject.name + " - ";
 		}
-		print(s);
 		for(int i = 0; i < orderedHits.Count; i++)
 		{
 			bool ignoreHit = false;
