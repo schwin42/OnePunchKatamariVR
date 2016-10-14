@@ -30,10 +30,11 @@ public class BallSpawner : MonoBehaviour {
 	}
 
 	void FireBallAtHeadset() {
-		print ("Firing ball");
+
 		GameObject ballInstance = Instantiate (ballPrefab, transform) as GameObject;
 		ballInstance.transform.localPosition = Vector3.zero;
 		Rigidbody rigidbody = ballInstance.GetComponent<Rigidbody> ();
+//		print ("Firing ball in direction: " + (DungeonMaster.Instance.HeadsetOrigin.position - transform.position));
 		Vector3 launchVector = (DungeonMaster.Instance.HeadsetOrigin.position - transform.position) * LAUNCH_FORCE;
 		rigidbody.AddForce (launchVector);
 	}

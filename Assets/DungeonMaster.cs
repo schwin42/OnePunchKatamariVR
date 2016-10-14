@@ -26,12 +26,29 @@ public class DungeonMaster : MonoBehaviour {
 			return _headsetOrigin;
 		}
 	}
+		
+	private int _projectileFriendlyLayer;
+	public int ProjectileFriendlyLayer {
+		get {
+			return _projectileFriendlyLayer;
+		}
+	}
+
+	private int _projectileHostileLayer;
+	public int ProjectileHostileLayer {
+		get {
+			return _projectileHostileLayer;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
 	
 		_hmdOrigin = GameObject.Find ("[CameraRig]").transform;
 		_headsetOrigin = _hmdOrigin.Find ("Camera (eye)");
+
+		_projectileHostileLayer = LayerMask.NameToLayer ("ProjectileHostile");
+		_projectileFriendlyLayer = LayerMask.NameToLayer ("ProjectileFriendly");
 	}
 	
 	// Update is called once per frame
